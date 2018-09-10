@@ -24,7 +24,7 @@ public class PermutationUtilTest {
     }
 
     @Test
-    public void should_return_ab_ba_when_given_one_letter_ab() {
+    public void should_return_ab_ba_when_given_two_letter_ab() {
         // Given
         String letters = "ab";
 
@@ -33,5 +33,17 @@ public class PermutationUtilTest {
 
         // Then
         assertEquals(asList("ab", "ba"), permutations);
+    }
+
+    @Test
+    public void should_return_abc_acb_bac_bca_cab_cba_when_given_three_letter_abc() {
+        // Given
+        String letters = "abc";
+
+        // When
+        List<String> permutations = listAllPermutations(letters);
+
+        // Then
+        assertEquals(asList("abc", "acb", "bac", "bca", "cab", "cba"), permutations);
     }
 }
