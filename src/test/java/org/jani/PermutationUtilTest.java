@@ -2,6 +2,7 @@ package org.jani;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
@@ -19,5 +20,17 @@ public class PermutationUtilTest {
 
         // Then
         assertEquals(singletonList("a"), permutations);
+    }
+
+    @Test
+    public void should_return_ab_ba_when_given_one_letter_ab() {
+        // Given
+        String letters = "ab";
+
+        // When
+        List<String> permutations = listAllPermutations(letters);
+
+        // Then
+        assertEquals(Arrays.asList("ab", "ba"), permutations);
     }
 }
