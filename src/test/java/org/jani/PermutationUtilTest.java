@@ -46,4 +46,16 @@ public class PermutationUtilTest {
         // Then
         assertEquals(asList("abc", "acb", "bac", "bca", "cab", "cba"), permutations);
     }
+
+    @Test
+    public void should_return_list_size_24_when_given_three_letter_abcd() {
+        // Given
+        String letters = "abcd";
+
+        // When
+        List<String> permutations = listAllPermutations(letters);
+
+        // Then
+        assertEquals(24, permutations.size());
+    }
 }
