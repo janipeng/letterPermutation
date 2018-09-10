@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static org.jani.PermutationUtil.listAllPermutations;
 import static org.junit.Assert.assertEquals;
@@ -31,6 +32,6 @@ public class PermutationUtilTest {
         List<String> permutations = listAllPermutations(letters);
 
         // Then
-        assertEquals(Arrays.asList("ab", "ba"), permutations);
+        assertEquals(asList("ab", "ba"), permutations);
     }
 }
