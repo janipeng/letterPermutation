@@ -3,25 +3,25 @@ package org.jani;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 
 class PermutationUtil {
     static List<String> listAllPermutations(String letters) {
-        if (letters.length() == 2) {
-            return asList(letters,
-                    letters.substring(1, 2) + letters.substring(0, 1));
+        if (letters.length() == 1) {
+            return singletonList(letters);
         }
-        if (letters.length() == 3) {
-            List<String> permutations = new ArrayList<String>();
-            permutations.add(letters);
-            permutations.add(letters.substring(0, 1) + letters.substring(2, 3) + letters.substring(1, 2));
-            permutations.add(letters.substring(1, 2) + letters.substring(0, 1) + letters.substring(2, 3));
-            permutations.add(letters.substring(1, 2) + letters.substring(2, 3) + letters.substring(0, 1));
-            permutations.add(letters.substring(2, 3) + letters.substring(0, 1) + letters.substring(1, 2));
-            permutations.add(letters.substring(2, 3) + letters.substring(1, 2) + letters.substring(0, 1));
-            return permutations;
+        List<String> permutations = new ArrayList<String>();
+        for (int index = 0; index < letters.length(); index++) {
+            for (String permutation : listAllPermutations(subtractOneCharByIndex(letters, index))) {
+                permutations.add(letters.charAt(index) + permutation);
+            }
         }
-        return singletonList(letters);
+        return permutations;
+    }
+    
+    private static String subtractOneCharByIndex(String letters, int index) {
+        return letters.substring(0, index) + letters.substring(index + 1);
     }
 }
+
+
