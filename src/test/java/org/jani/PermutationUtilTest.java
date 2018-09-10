@@ -1,10 +1,12 @@
 package org.jani;
 
-import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Collections;
 import java.util.List;
+
+import static java.util.Collections.singletonList;
+import static org.jani.PermutationUtil.listAllPermutations;
+import static org.junit.Assert.assertEquals;
 
 public class PermutationUtilTest {
     @Test
@@ -13,9 +15,9 @@ public class PermutationUtilTest {
         String letters = "a";
 
         // When
-        List<String> permutations = PermutationUtil.listAllPermutations(letters);
+        List<String> permutations = listAllPermutations(letters);
 
         // Then
-        Assert.assertEquals(Collections.singletonList("a"), permutations);
+        assertEquals(singletonList("a"), permutations);
     }
 }
